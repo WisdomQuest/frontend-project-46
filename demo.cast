@@ -1,0 +1,9 @@
+{"version": 2, "width": 225, "height": 17, "timestamp": 1738224597, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.144981, "o", "\u001b[?2004h💻 \u001b[1;34mfrontend-project-46\u001b[m\u001b[32m (main)\u001b[00m $ "]
+[6.645801, "o", "gendiff files/file1.json files/file2.json"]
+[6.910432, "o", "\r\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Cclear\u001b[K"]
+[7.359291, "o", "\b\b\b\b\bgendiff files/file1.json files/file2.json"]
+[8.516322, "o", "\r\n\u001b[?2004l\r"]
+[9.129015, "o", "{\r\n  - follow: false\r\n    host: hexlet.io\r\n  - proxy: 123.234.53.22\r\n  - timeout: 50\r\n  + timeout: 20\r\n  + verbose: true\r\n}\r\n"]
+[9.209824, "o", "\u001b[?2004h💻 \u001b[1;34mfrontend-project-46\u001b[m\u001b[32m (main)\u001b[00m $ "]
+[10.880547, "o", "\u001b[?2004l\r\r\nexit\r\n"]
