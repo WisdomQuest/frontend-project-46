@@ -12,3 +12,12 @@ link:
 
 gendiff.js:
 	node bin/gendiff.js -h
+
+lint:
+	npx eslint .
+
+watch:
+	npx jest --watch
+
+test:
+	npm test

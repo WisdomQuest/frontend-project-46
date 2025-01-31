@@ -21,6 +21,7 @@ program
    console.log(diffFiles(file1, file2));
   });
 
+// eslint-disable-next-line no-undef
 program.parse(process.argv);
 
 if (program.opts().help) {

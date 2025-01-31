@@ -4,7 +4,7 @@ import { cwd } from 'node:process';
 
 const parseFile = (filePath) => {
   const absolutePath = path.resolve(cwd(), filePath);
-  const data = fs.readFileSync(absolutePath);
+  const data = fs.readFileSync(absolutePath, 'utf-8');
   return JSON.parse(data);
 };
 
