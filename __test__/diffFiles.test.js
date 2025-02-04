@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import fs from 'fs';
 import path from 'path';
 import compareFiles from '../src/diffFiles.js';
@@ -13,9 +14,11 @@ const getFixturePath = (filename) =>
 const readFile = (filename) =>
   fs.readFileSync(getFixturePath(filename), 'utf-8');
 
+const normalizedString = (str) => str.replace(/\r\n/g, '\n')
+
 test('compareFiles',()=>{
 const diffFiles = readFile('expectDiffFiles.txt')
 const file1 = parseFile(getFixturePath('file1.json'));
 const file2 = parseFile(getFixturePath('file2.json'));
-  expect(compareFiles(file1,file2)).toEqual(diffFiles);
+  expect(compareFiles(file1,file2)).toEqual(normalizedString(diffFiles));
 })
