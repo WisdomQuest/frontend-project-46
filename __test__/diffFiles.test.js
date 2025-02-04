@@ -14,11 +14,20 @@ const getFixturePath = (filename) =>
 const readFile = (filename) =>
   fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const normalizedString = (str) => str.replace(/\r\n/g, '\n')
+const normalizedString = (str) => str.replace(/\r\n/g, '\n');
 
-test('compareFiles',()=>{
-const diffFiles = readFile('expectDiffFiles.txt')
-const file1 = parseFile(getFixturePath('file1.json'));
-const file2 = parseFile(getFixturePath('file2.json'));
-  expect(compareFiles(file1,file2)).toEqual(normalizedString(diffFiles));
-})
+test('compareFilesJson', () => {
+  const diffFiles = readFile('expectDiffFiles.txt');
+  const file1 = parseFile(getFixturePath('file1.json'));
+  const file2 = parseFile(getFixturePath('file2.json'));
+  expect(compareFiles(file1, file2)).toEqual(normalizedString(diffFiles));
+});
+
+test('compareFilesYaml', () => {
+  const diffFiles = readFile('expectDiffFiles.txt');
+  const file1 = parseFile(getFixturePath('file1.yaml'));
+  const file2 = parseFile(getFixturePath('file2.yml'));
+  expect(compareFiles(file1, file2)).toEqual(normalizedString(diffFiles));
+});
+
+

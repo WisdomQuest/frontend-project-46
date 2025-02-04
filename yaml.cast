@@ -1,0 +1,8 @@
+{"version": 2, "width": 225, "height": 17, "timestamp": 1738670771, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.112516, "o", "\u001b[?2004h💻 \u001b[1;34mfrontend-project-46\u001b[m\u001b[32m (main)\u001b[00m $ "]
+[0.727726, "o", "gendiff files/fi"]
+[0.728335, "o", "le1.yaml files/file2.yml"]
+[1.578453, "o", "\r\n\u001b[?2004l\r"]
+[1.799465, "o", "{\r\n  - follow: false\r\n    host: hexlet.io\r\n  - proxy: 123.234.53.22\r\n  - timeout: 50\r\n  + timeout: 20\r\n  + verbose: true\r\n}\r\n"]
+[1.87181, "o", "\u001b[?2004h💻 \u001b[1;34mfrontend-project-46\u001b[m\u001b[32m (main)\u001b[00m $ "]
+[2.863524, "o", "\u001b[?2004l\r\r\nexit\r\n"]
