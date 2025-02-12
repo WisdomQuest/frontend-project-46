@@ -1,46 +1,34 @@
 import _ from 'lodash';
 
 function compareFiles(file1, file2) {
-  const key1 = Object.keys(file1);
-  const key2 = Object.keys(file2);
-  const unionKeys = _.union(key1, key2);
-  const temp = _.sortBy(unionKeys).map((key) => {
-    if (!file2[key]) {
-      return `  - ${key}: ${file1[key]}`;
+  const keys = _.union(Object.keys(file1), Object.keys(file2));
+  return _.sortBy(keys).map((key) => {
+    const value1 = file1[key];
+    const value2 = file2[key];
+
+    if (!_.has(file2, key)) {
+      return { name: key, value: value1, condition: 'minus' };
     }
-    if (!file1[key]) {
-      return `  + ${key}: ${file2[key]}`;
+    if (!_.has(file1, key)) {
+      return { name: key, value: value2, condition: 'plus' };
     }
-    if (file2[key] === file1[key]) {
-      return `    ${key}: ${file1[key]}`;
+    if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
+      return {
+        name: key,
+        condition: 'unchanged',
+        children: compareFiles(value1, value2),
+      };
     }
-    return `  - ${key}: ${file1[key]}\n  + ${key}: ${file2[key]}`;
+    if (value1 === value2) {
+      return { name: key, value: value1, condition: 'dash' };
+    }
+    return {
+      name: key,
+      keyOld: value1,
+      keyNew: value2,
+      condition: 'changed',
+    };
   });
-  return `{\n${temp.join('\n')}\n}`;
 }
 
 export default compareFiles;
-
-// gendiff filepath1.json filepath2.json
-
-// {
-//   - follow: false
-//     host: hexlet.io
-//   - proxy: 123.234.53.22
-//   - timeout: 50
-//   + timeout: 20
-//   + verbose: true
-// }
-
-// {
-//   "host": "hexlet.io",
-//   "timeout": 50,
-//   "proxy": "123.234.53.22",
-//   "follow": false
-// }
-
-// {
-//   "timeout": 20,
-//   "verbose": true,
-//   "host": "hexlet.io"
-// }

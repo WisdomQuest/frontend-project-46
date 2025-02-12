@@ -3,8 +3,11 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b3483509ed87517cea27/test_coverage)](https://codeclimate.com/github/WisdomQuest/frontend-project-46/test_coverage)
 
-Ascinema(lesson4)
+Ascinema(step 4)
 [![asciicast](https://asciinema.org/a/wHepNLn0QNSfYXf9OyHoPT4HJ.svg)](https://asciinema.org/a/wHepNLn0QNSfYXf9OyHoPT4HJ)
 
-Ascinema(lesson6)
+Ascinema(step 6)
 [![asciicast](https://asciinema.org/a/HxkkOQiIYxm2vO2JyCDFUd5sn.svg)](https://asciinema.org/a/HxkkOQiIYxm2vO2JyCDFUd5sn)
+
+Ascinema(step 7)
+[![asciicast](https://asciinema.org/a/tiPXgEuuDoMZAupBaOi3jpOhM.svg)](https://asciinema.org/a/tiPXgEuuDoMZAupBaOi3jpOhM)
