@@ -11,3 +11,6 @@ Ascinema(step 6)
 
 Ascinema(step 7)
 [![asciicast](https://asciinema.org/a/tiPXgEuuDoMZAupBaOi3jpOhM.svg)](https://asciinema.org/a/tiPXgEuuDoMZAupBaOi3jpOhM)
+
+Ascinema(step 8)
+[![asciicast](https://asciinema.org/a/wVFcRWLw25eVEgI4DCbmQsqQq.svg)](https://asciinema.org/a/wVFcRWLw25eVEgI4DCbmQsqQq)
