@@ -5,7 +5,7 @@ import parseFile from '../src/fileParser.js';
 import diffFiles from '../src/diffFiles.js';
 import formatStylish from '../src/formats/styllish.js';
 import formatPlain from '../src/formats/plain.js';
-
+import formatJson from '../src/formats/json.js';
 
 program
   .name('gendiff')
@@ -28,6 +28,8 @@ program
       output = formatStylish(getDIffFiles);
     } else if (format === 'plain') {
       output = formatPlain(getDIffFiles);
+    } else if (format === 'json') {
+      output = formatJson(getDIffFiles);
     } else {
       console.error(`Unknown format: ${format}`);
       // eslint-disable-next-line no-undef

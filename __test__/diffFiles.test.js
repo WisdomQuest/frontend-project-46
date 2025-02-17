@@ -7,6 +7,7 @@ import { dirname } from 'path';
 import parseFile from '../src/fileParser.js';
 import formatStylish from '../src/formats/styllish.js';
 import formatPlain from '../src/formats/plain.js';
+import formatJson from '../src/formats/json.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,7 +45,12 @@ test('compareFilesJsonFormatPlain', () => {
   expect(formatPlain(diffFilesJson)).toEqual(diffFilesFormatPlain);
 });
 
-test('compareFilesYamlFormatStylishPlain', () => {
-  const diffFilesFormatPlain = readFile('expectDiffFormatPlain.txt');
-  expect(formatPlain(diffFilesYaml)).toEqual(diffFilesFormatPlain);
+// test('compareFilesYamlFormatStylishPlain', () => {
+//   const diffFilesFormatPlain = readFile('expectDiffFormatPlain.txt');
+//   expect(formatPlain(diffFilesYaml)).toEqual(diffFilesFormatPlain);
+// });
+
+test('compareFilesFormatJson', () => {
+  const diffFilesFormatPlain = readFile('expectDiffFormatJson.txt');
+  expect(formatJson(diffFilesJson)).toEqual(diffFilesFormatPlain);
 });

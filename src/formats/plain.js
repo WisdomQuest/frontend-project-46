@@ -1,8 +1,5 @@
 import _ from 'lodash';
-
-const getPath = (data, parentPath = '') => {
-  return parentPath ? `${parentPath}.${data.name}` : data.name;
-};
+import getPath from '../getPath.js';
 
 const checkBolleanNull = (value) => {
   if (_.isNull(value) || _.isBoolean(value)) {
