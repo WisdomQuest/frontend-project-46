@@ -21,7 +21,7 @@ program
     const file1 = parseFile(filePath1);
     const file2 = parseFile(filePath2);
     const getDIffFiles = diffFiles(file1, file2);
-    const format = program.opts().format || 'stylish';
+    const format = program.opts().format;
 
     let output;
     if (format === 'stylish') {

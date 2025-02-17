@@ -45,11 +45,6 @@ test('compareFilesJsonFormatPlain', () => {
   expect(formatPlain(diffFilesJson)).toEqual(diffFilesFormatPlain);
 });
 
-// test('compareFilesYamlFormatStylishPlain', () => {
-//   const diffFilesFormatPlain = readFile('expectDiffFormatPlain.txt');
-//   expect(formatPlain(diffFilesYaml)).toEqual(diffFilesFormatPlain);
-// });
-
 test('compareFilesFormatJson', () => {
   const diffFilesFormatPlain = readFile('expectDiffFormatJson.txt');
   expect(formatJson(diffFilesJson)).toEqual(diffFilesFormatPlain);
