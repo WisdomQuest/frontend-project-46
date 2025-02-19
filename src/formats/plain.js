@@ -2,7 +2,7 @@ import _ from 'lodash';
 import getPath from '../getPath.js';
 
 const checkBolleanNull = (value) => {
-  if (_.isNull(value) || _.isBoolean(value)) {
+  if (_.isNull(value) || _.isBoolean(value)|| _.isNumber(value)) {
     return value;
   }
   return `'${value}'`;
