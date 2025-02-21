@@ -1,13 +1,6 @@
 import _ from 'lodash';
 import getPath from '../getPath.js';
 
-const checkBolleanNullNumber = (value) => {
-  if (_.isNull(value) || _.isBoolean(value) || _.isNumber(value)) {
-    return value;
-  }
-  return `"${value}"`;
-};
-
 const getValue = (elem) => {
   if (elem.keyOld || elem.keyNew) {
     return `"oldValue": ${formatValue(elem.keyOld)}, "newValue": ${formatValue(elem.keyNew)}`;
@@ -16,10 +9,12 @@ const getValue = (elem) => {
 };
 
 const formatValue = (value) => {
-  if (_.isPlainObject(value)) {
+  if (_.isNull(value) || _.isBoolean(value) || _.isNumber(value)) {
+    return value;
+  }else if (_.isPlainObject(value)) {
     return JSON.stringify(value);
   }
-  return checkBolleanNullNumber(value);
+  return `"${value}"`;
 };
 
 const formatJson = (data, parentPath = '') => {

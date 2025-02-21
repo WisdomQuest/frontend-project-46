@@ -20,6 +20,5 @@ export const chooseFormat = (filePath1, filePath2, format = 'stylish') => {
     console.error(`Unknown format: ${format}`);
   }
 
-  console.log(output);
   return output;
 };
