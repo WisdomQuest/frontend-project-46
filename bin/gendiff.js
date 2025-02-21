@@ -16,9 +16,4 @@ program
     console.log(chooseFormat(filePath1, filePath2, options.format));
   });
 
-// eslint-disable-next-line no-undef
-program.parse(process.argv);
-
-if (program.opts().help) {
-  program.outputHelp();
-}
+program.parse();
