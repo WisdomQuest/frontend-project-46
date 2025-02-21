@@ -14,7 +14,7 @@ const getExtensionFile = (fileName) => {
   throw new Error(`не найдено расширение файла: ${fileName} `);
 };
 
-const parseFile = (filePath) => {
+const fileParser = (filePath) => {
   const absolutePath = path.resolve(cwd(), filePath);
   const extensionFunc = getExtensionFile(filePath);
   const data = fs.readFileSync(absolutePath, 'utf-8');
@@ -22,4 +22,4 @@ const parseFile = (filePath) => {
   return extensionFunc(data);
 };
 
-export default parseFile;
+export default fileParser;
