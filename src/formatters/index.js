@@ -4,7 +4,7 @@ import formatStylish from './styllish.js';
 import formatPlain from './plain.js';
 import formatJson from './json.js';
 
-export const chooseFormat = (filePath1, filePath2, format = 'stylish') => {
+  const genDiff = (filePath1, filePath2, format = 'stylish') => {
   const file1 = fileParser(filePath1);
   const file2 = fileParser(filePath2);
   const getDIffFiles = diffFiles(file1, file2);
@@ -22,3 +22,5 @@ export const chooseFormat = (filePath1, filePath2, format = 'stylish') => {
 
   return output;
 };
+
+export default genDiff;

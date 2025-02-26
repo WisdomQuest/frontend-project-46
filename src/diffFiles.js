@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-function compareFiles(file1, file2) {
+function diffFiles(file1, file2) {
   const keys = _.union(Object.keys(file1), Object.keys(file2));
   return _.sortBy(keys).map((key) => {
     const value1 = file1[key];
@@ -16,7 +16,7 @@ function compareFiles(file1, file2) {
       return {
         name: key,
         condition: 'unchanged',
-        children: compareFiles(value1, value2),
+        children: diffFiles(value1, value2),
       };
     }
     if (value1 === value2) {
@@ -31,4 +31,4 @@ function compareFiles(file1, file2) {
   });
 }
 
-export default compareFiles;
+export default diffFiles;
