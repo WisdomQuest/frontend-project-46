@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import { chooseFormat } from '../src/formatters/index.js';
+import genDiff from '../src/formatters/index.js';
 program
   .name('gendiff')
   .description('Compares two configuration files and shows a difference.')
@@ -13,7 +13,7 @@ program
   .argument('<filepath1>', 'path to file 1')
   .argument('<filepath2>', 'path to file 2')
   .action((filePath1, filePath2, options) => {
-    console.log(chooseFormat(filePath1, filePath2, options.format));
+    console.log(genDiff(filePath1, filePath2, options.format));
   });
 
 program.parse();
