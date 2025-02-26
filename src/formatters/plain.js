@@ -10,29 +10,6 @@ const formatValue = (value) => {
   return `'${value}'`;
 };
 
-// const getValue = (data) => {
-//   if (data.condition === 'changed') {
-//     return `${
-//       _.isObject(data.keyOld)
-//         ? `[complex value]`
-//         : `${checkBolleanNull(data.keyOld)}`
-//     } to ${
-//       _.isObject(data.keyNew)
-//         ? `[complex value]`
-//         : `${checkBolleanNull(data.keyNew)}`
-//     }`;
-//   } else if (_.isObject(data.value)) {
-//     return `[complex value]`;
-//   }
-
-//   return checkBolleanNull(data.value);
-// };
-
-// const getValue = (data) => {
-//   return _.isObject(data) ? `[complex value]` : formatValue(data);
-// };
-
-
 const formatPlain = (data, parentPath = '') => {
   const lines = data.map((elem) => {
     const { condition, children } = elem;
