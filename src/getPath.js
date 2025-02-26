@@ -1,1 +1,3 @@
-export default (data, parentPath = '') => parentPath ? `${parentPath}.${data.name}` : data.name;
+export default (data, parentPath = '') => {
+  return parentPath ? `${parentPath}.${data.name}` : data.name;
+};

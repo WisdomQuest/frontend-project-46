@@ -2,9 +2,9 @@ import _ from 'lodash';
 import getPath from '../getPath.js';
 
 const formatValue = (value) => {
-  if (_.isNull(value) || _.isBoolean(value)|| _.isNumber(value)) {
+  if (_.isNull(value) || _.isBoolean(value) || _.isNumber(value)) {
     return value;
-  } else if(_.isObject(value)) {
+  } else if (_.isObject(value)) {
     return `[complex value]`;
   }
   return `'${value}'`;
@@ -23,7 +23,9 @@ const formatPlain = (data, parentPath = '') => {
       case 'minus':
         return `Property '${currentPath}' was removed`;
       case 'changed':
-        return `Property '${currentPath}' was updated. From ${formatValue(elem.keyOld)} to ${formatValue(elem.keyNew)}`;
+        return `Property '${currentPath}' was updated. From ${formatValue(
+          elem.keyOld
+        )} to ${formatValue(elem.keyNew)}`;
       case 'unchanged':
         return `${formatPlain(children, currentPath)}`;
       default:

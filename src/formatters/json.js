@@ -20,12 +20,12 @@ const getValue = (elem) => {
 };
 
 const formatJson = (data, parentPath = '') => {
-  const iner = (data, parentPath) =>
-    data
+  const iner = (items, path) =>
+    items
       .filter((elem) => elem.condition !== 'dash')
       .map((elem) => {
         const { condition, children } = elem;
-        const currentPath = getPath(elem, parentPath);
+        const currentPath = getPath(elem, path);
         if (condition === 'unchanged') {
           return `${iner(children, currentPath)}`;
         }

@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-const createIndent = (depth, shiftingLeft = -2) => ' '.repeat(depth * 4 + shiftingLeft);
+const createIndent = (depth, shiftingLeft = -2) =>
+  ' '.repeat(depth * 4 + shiftingLeft);
 
 const stringify = (data, depth) => {
   const indent = createIndent(depth);
