@@ -1,10 +1,11 @@
-var addSorting = (function () {
-  'use strict';
-  var cols,
-    currentSort = {
-      index: 0,
-      desc: false,
-    };
+/* eslint-disable */
+
+const addSorting = (function () {
+  let cols;
+  const currentSort = {
+    index: 0,
+    desc: false,
+  };
 
   // returns the summary table element
   function getTable() {
@@ -38,19 +39,19 @@ var addSorting = (function () {
 
   // loads the search box
   function addSearchBox() {
-    var template = document.getElementById('filterTemplate');
-    var templateClone = template.content.cloneNode(true);
+    const template = document.getElementById('filterTemplate');
+    const templateClone = template.content.cloneNode(true);
     templateClone.getElementById('fileSearch').oninput = onFilterInput;
     template.parentElement.appendChild(templateClone);
   }
 
   // loads all columns
   function loadColumns() {
-    var colNodes = getTableHeader().querySelectorAll('th'),
-      colNode,
-      cols = [],
-      col,
-      i;
+    const colNodes = getTableHeader().querySelectorAll('th');
+    let colNode;
+    const cols = [];
+    let col;
+    let i;
 
     for (i = 0; i < colNodes.length; i += 1) {
       colNode = colNodes[i];
@@ -62,7 +63,7 @@ var addSorting = (function () {
       cols.push(col);
       if (col.sortable) {
         col.defaultDescSort = col.type === 'number';
-        colNode.innerHTML = colNode.innerHTML + '<span class="sorter"></span>';
+        colNode.innerHTML += '<span class="sorter"></span>';
       }
     }
     return cols;
@@ -70,12 +71,12 @@ var addSorting = (function () {
   // attaches a data attribute to every tr element with an object
   // of data values keyed by column name
   function loadRowData(tableRow) {
-    var tableCols = tableRow.querySelectorAll('td'),
-      colNode,
-      col,
-      data = {},
-      i,
-      val;
+    const tableCols = tableRow.querySelectorAll('td');
+    let colNode;
+    let col;
+    const data = {};
+    let i;
+    let val;
     for (i = 0; i < tableCols.length; i += 1) {
       colNode = tableCols[i];
       col = cols[i];
@@ -89,8 +90,8 @@ var addSorting = (function () {
   }
   // loads all row data
   function loadData() {
-    var rows = getTableBody().querySelectorAll('tr'),
-      i;
+    const rows = getTableBody().querySelectorAll('tr');
+    let i;
 
     for (i = 0; i < rows.length; i += 1) {
       rows[i].data = loadRowData(rows[i]);
@@ -98,17 +99,17 @@ var addSorting = (function () {
   }
   // sorts the table using the data for the ith column
   function sortByIndex(index, desc) {
-    var key = cols[index].key,
-      sorter = function (a, b) {
-        a = a.data[key];
-        b = b.data[key];
-        return a < b ? -1 : a > b ? 1 : 0;
-      },
-      finalSorter = sorter,
-      tableBody = document.querySelector('.coverage-summary tbody'),
-      rowNodes = tableBody.querySelectorAll('tr'),
-      rows = [],
-      i;
+    const { key } = cols[index];
+    const sorter = function (a, b) {
+      a = a.data[key];
+      b = b.data[key];
+      return a < b ? -1 : a > b ? 1 : 0;
+    };
+    let finalSorter = sorter;
+    const tableBody = document.querySelector('.coverage-summary tbody');
+    const rowNodes = tableBody.querySelectorAll('tr');
+    const rows = [];
+    let i;
 
     if (desc) {
       finalSorter = function (a, b) {
@@ -129,8 +130,8 @@ var addSorting = (function () {
   }
   // removes sort indicators for current column being sorted
   function removeSortIndicators() {
-    var col = getNthColumn(currentSort.index),
-      cls = col.className;
+    const col = getNthColumn(currentSort.index);
+    let cls = col.className;
 
     cls = cls.replace(/ sorted$/, '').replace(/ sorted-desc$/, '');
     col.className = cls;
@@ -143,24 +144,24 @@ var addSorting = (function () {
   }
   // adds event listeners for all sorter widgets
   function enableUI() {
-    var i,
-      el,
-      ithSorter = function ithSorter(i) {
-        var col = cols[i];
+    let i;
+    let el;
+    const ithSorter = function ithSorter(i) {
+      const col = cols[i];
 
-        return function () {
-          var desc = col.defaultDescSort;
+      return function () {
+        let desc = col.defaultDescSort;
 
-          if (currentSort.index === i) {
-            desc = !currentSort.desc;
-          }
-          sortByIndex(i, desc);
-          removeSortIndicators();
-          currentSort.index = i;
-          currentSort.desc = desc;
-          addSortIndicators();
-        };
+        if (currentSort.index === i) {
+          desc = !currentSort.desc;
+        }
+        sortByIndex(i, desc);
+        removeSortIndicators();
+        currentSort.index = i;
+        currentSort.desc = desc;
+        addSortIndicators();
       };
+    };
     for (i = 0; i < cols.length; i += 1) {
       if (cols[i].sortable) {
         // add the click event handler on the th so users

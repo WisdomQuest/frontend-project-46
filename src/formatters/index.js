@@ -9,14 +9,16 @@ const genDiff = (filePath1, filePath2, format = 'stylish') => {
   const file2 = fileParser(filePath2);
   const getDIffFiles = diffFiles(file1, file2);
 
-  const output =
-    format === 'stylish'
-      ? formatStylish(getDIffFiles)
-      : format === 'plain'
-      ? formatPlain(getDIffFiles)
-      : format === 'json'
-      ? formatJson(getDIffFiles)
-      : console.error(`Unknown format: ${format}`) || null;
+  let output;
+  if (format === 'stylish') {
+    output = formatStylish(getDIffFiles);
+  } else if (format === 'plain') {
+    output = formatPlain(getDIffFiles);
+  } else if (format === 'json') {
+    output = formatJson(getDIffFiles);
+  } else {
+    console.error(`Unknown format: ${format}`);
+  }
 
   return output;
 };
