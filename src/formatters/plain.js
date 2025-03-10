@@ -25,7 +25,7 @@ const formatPlain = (data, parentPath = '') => {
       case 'changed':
         return `Property '${currentPath}' was updated. From ${formatValue(
           elem.keyOld,
-        )} to ${formatValue(elem.keyNew)}`;
+        )} to ${formatValue(elem.newValue)}`;
       case 'unchanged':
         return `${formatPlain(children, currentPath)}`;
       default:

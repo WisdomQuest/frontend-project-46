@@ -25,7 +25,7 @@ function diffFiles(file1, file2) {
     return {
       name: key,
       keyOld: value1,
-      keyNew: value2,
+      newValue: value2,
       condition: 'changed',
     };
   });

@@ -27,7 +27,7 @@ const formatStylish = (data, depth = 1) => {
   const indent = createIndent(depth);
   const formattedLines = data.map((elem) => {
     const {
-      name, condition, value, keyOld, keyNew, children,
+      name, condition, value, keyOld, newValue, children,
     } = elem;
 
     switch (condition) {
@@ -41,7 +41,7 @@ const formatStylish = (data, depth = 1) => {
         return `${indent}- ${name}: ${formatValue(
           keyOld,
           depth + 1,
-        )}\n${indent}+ ${name}: ${formatValue(keyNew, depth + 1)}`;
+        )}\n${indent}+ ${name}: ${formatValue(newValue, depth + 1)}`;
       case 'unchanged':
         return `${indent}  ${name}: ${formatStylish(children, depth + 1)}`;
       default:
