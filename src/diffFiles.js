@@ -7,10 +7,10 @@ function diffFiles(file1, file2) {
     const value2 = file2[key];
 
     if (!_.has(file2, key)) {
-      return { name: key, value: value1, condition: 'minus' };
+      return { name: key, value: value1, condition: 'delete' };
     }
     if (!_.has(file1, key)) {
-      return { name: key, value: value2, condition: 'plus' };
+      return { name: key, value: value2, condition: 'add' };
     }
     if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
       return {

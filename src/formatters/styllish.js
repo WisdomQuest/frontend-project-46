@@ -31,9 +31,9 @@ const formatStylish = (data, depth = 1) => {
     } = elem;
 
     switch (condition) {
-      case 'plus':
+      case 'add':
         return `${indent}+ ${name}: ${formatValue(value, depth + 1)}`;
-      case 'minus':
+      case 'delete':
         return `${indent}- ${name}: ${formatValue(value, depth + 1)}`;
       case 'dash':
         return `${indent}  ${name}: ${value}`;
