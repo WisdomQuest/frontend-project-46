@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/WisdomQuest/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/WisdomQuest/frontend-project-46/actions)",
+  "description": "Вычислитель отличий – программа, определяющая разницу между двумя структурами данных",
   "main": "./src/formatters/index.js",
   "scripts": {
     "test": "jest"
