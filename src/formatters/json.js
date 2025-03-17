@@ -14,7 +14,6 @@ const formatJson = (data, parentPath = '') => {
         condition,
       };
 
-      // Используем деструктуризацию и условное добавление свойств
       if (keyOld !== undefined || newValue !== undefined) {
         return {
           ...resultObj,
