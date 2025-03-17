@@ -14,18 +14,20 @@ const formatJson = (data, parentPath = '') => {
         condition,
       };
 
+      // Используем деструктуризацию и условное добавление свойств
       if (keyOld !== undefined || newValue !== undefined) {
-        resultObj.oldValue = keyOld;
-        resultObj.newValue = newValue;
-      } else {
-        resultObj.value = value;
+        return {
+          ...resultObj,
+          oldValue: keyOld,
+          newValue,
+          ...(children && { children: iner(children, currentPath) }),
+        };
       }
-
-      if (children) {
-        resultObj.children = iner(children, currentPath);
-      }
-
-      return resultObj;
+      return {
+        ...resultObj,
+        value,
+        ...(children && { children: iner(children, currentPath) }),
+      };
     });
 
   const result = iner(data, parentPath);
